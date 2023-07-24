@@ -14,8 +14,8 @@
             filePath = "Async_Await_Networking/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -77,8 +77,8 @@
             filePath = "Async_Await_Networking/HTTPClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "handleRequestResponse(_:_:for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -93,8 +93,8 @@
             filePath = "Async_Await_Networking/Mapping/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
             <Locations>
@@ -127,6 +127,307 @@
                   startingLineNumber = "272"
                   endingLineNumber = "272"
                   offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E1D5465-0236-49CA-BD3D-C2FDA62C61B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/Mapping/MapViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D700E4F-1B33-4D9C-BD79-2077CC3EECA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/Mapping/MapViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "setRegion(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDC5BF42-2D60-4EFD-8519-A6D115989AA5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/Mapping/MapViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "setRegion(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "359981F4-9631-4349-B101-737222BC8CCA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/User Details/UserDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "359981F4-9631-4349-B101-737222BC8CCA - 518f45d7fb81394d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Async_Await_Networking.UserDetailsView.body.getter : some"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "359981F4-9631-4349-B101-737222BC8CCA - 98ec887eab138a34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #2 @Sendable () async -&gt; () in Async_Await_Networking.UserDetailsView.body.getter : some"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "49">
+               </Location>
+               <Location
+                  uuid = "359981F4-9631-4349-B101-737222BC8CCA - e8671513b8f51e48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Async_Await_Networking.UserDetailsView.body.getter : some"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "95">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B6C4939-987D-4CA6-AF55-AE793A0C917D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/UserPreview List/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D32450F-6F82-4433-BB81-4B53BB90D713"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/User Details/UserDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getUser(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7D32450F-6F82-4433-BB81-4B53BB90D713 - f3b8a69222ca9c1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Async_Await_Networking.UserDetailsViewModel.getUser(with: Swift.String) async throws -&gt; ()"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "349">
+               </Location>
+               <Location
+                  uuid = "7D32450F-6F82-4433-BB81-4B53BB90D713 - f3b8a69222ca9c1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Async_Await_Networking.UserDetailsViewModel.getUser(with: Swift.String) async throws -&gt; ()"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "419">
+               </Location>
+               <Location
+                  uuid = "7D32450F-6F82-4433-BB81-4B53BB90D713 - 56e63c3b8169b210"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Async_Await_Networking.UserDetailsViewModel.getUser(with: Swift.String) async throws -&gt; ()"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "157">
+               </Location>
+               <Location
+                  uuid = "7D32450F-6F82-4433-BB81-4B53BB90D713 - 56e63c3b8169b210"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Async_Await_Networking.UserDetailsViewModel.getUser(with: Swift.String) async throws -&gt; ()"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/User%20Details/UserDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1E3502F-EDF1-41A6-9968-3545669880AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "handleRequestResponse(_:_:for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D1E3502F-EDF1-41A6-9968-3545669880AD - 9861ef67219c1ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Async_Await_Networking.NetworkRequestable.handleRequestResponse&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(_: Foundation.Data, _: __C.NSURLResponse, for: &#x3c4;_1_0.Type) throws -&gt; Swift.Result&lt;&#x3c4;_1_0, Swift.Error&gt;"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "234">
+               </Location>
+               <Location
+                  uuid = "D1E3502F-EDF1-41A6-9968-3545669880AD - 9861ef67219c1ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Async_Await_Networking.NetworkRequestable.handleRequestResponse&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(_: Foundation.Data, _: __C.NSURLResponse, for: &#x3c4;_1_0.Type) throws -&gt; Swift.Result&lt;&#x3c4;_1_0, Swift.Error&gt;"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAB04745-3CF6-403A-997E-8AECC676634F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Async_Await_Networking/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchData(of:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BAB04745-3CF6-403A-997E-8AECC676634F - 60ea43560fe3fb58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Async_Await_Networking.NetworkRequestable.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(of: &#x3c4;_1_0.Type, with: Swift.String) async throws -&gt; Swift.Result&lt;&#x3c4;_1_0, Swift.Error&gt;"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "478">
+               </Location>
+               <Location
+                  uuid = "BAB04745-3CF6-403A-997E-8AECC676634F - 60ea43560fe3fb58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Async_Await_Networking.NetworkRequestable.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Decodable, &#x3c4;_1_0: Swift.Encodable&gt;(of: &#x3c4;_1_0.Type, with: Swift.String) async throws -&gt; Swift.Result&lt;&#x3c4;_1_0, Swift.Error&gt;"
+                  moduleName = "Async_Await_Networking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdulsar/Desktop/Async_Await_Networking/Async_Await_Networking/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "698">
                </Location>
             </Locations>
          </BreakpointContent>

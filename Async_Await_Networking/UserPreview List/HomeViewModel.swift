@@ -19,9 +19,9 @@ class HomeViewModel: ObservableObject {
         self.networkingService = networkingService
     }
     
-    func getUsers() async throws {
+    func getUsers(limit: Int? = nil) async throws {
         do {
-            let result = try await self.networkingService.getUsers()
+            let result = try await self.networkingService.getUsers(limit: limit)
             
             switch result {
             case .success(let userListData):

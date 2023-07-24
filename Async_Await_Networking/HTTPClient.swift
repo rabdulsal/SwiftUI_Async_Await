@@ -9,15 +9,19 @@ import Foundation
 
 protocol NetworkRequestable {
     
-    var endpoint: String { get set }
+    var baseURL: String { get set }
 }
 
 extension NetworkRequestable {
     var appIDHeader: String { return "64bb43351a9f5c51ac1d89aa" }
     
-    func fetchData<T: Codable>(of type: T.Type) async throws -> Result<T,Error> {
+    func fetchData<T: Codable>(of type: T.Type) async throws -> Result<T, Error> {
+        return try await self.fetchData(of: T.self, with: self.baseURL)
+    }
+    
+    func fetchData<T: Codable>(of type: T.Type, with endpoint: String) async throws -> Result<T,Error> {
         
-        guard let url = URL(string: self.endpoint) else {
+        guard let url = URL(string: endpoint) else {
             throw NetworkError.badURL
         }
         
@@ -57,10 +61,19 @@ enum NetworkError : String, Error {
 
 struct HTTPClient: NetworkRequestable {
     
-    var endpoint = "https://dummyapi.io/data/v1/user?limit=10"
+    var baseURL = "https://dummyapi.io/data/v1/user"
     
-    func getUsers() async throws -> Result<UserListData, Error> {
-        
+    func getUsers(limit: Int? = nil) async throws -> Result<UserListData, Error> {
+        if let limit {
+            
+            let endpoint = baseURL + "?limit=\(limit)"
+            return try await self.fetchData(of: UserListData.self, with: endpoint)
+        }
         return try await self.fetchData(of: UserListData.self)
+    }
+    
+    func getUser(id: String) async throws -> Result<User, Error> {
+        let endPoint = self.baseURL + "/\(id)"
+        return try await self.fetchData(of: User.self, with: endPoint)
     }
 }
