@@ -16,6 +16,8 @@
 		3A5E78512A6B73DD006DD2AE /* Async_Await_NetworkingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78502A6B73DD006DD2AE /* Async_Await_NetworkingUITestsLaunchTests.swift */; };
 		3A5E785E2A6B7416006DD2AE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E785D2A6B7416006DD2AE /* ViewModel.swift */; };
 		3A5E78612A6B7E89006DD2AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78602A6B7E89006DD2AE /* User.swift */; };
+		3A5E78632A6C4CE0006DD2AE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78622A6C4CE0006DD2AE /* HTTPClient.swift */; };
+		3A5E78662A6C7D77006DD2AE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78652A6C7D77006DD2AE /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		3A5E78502A6B73DD006DD2AE /* Async_Await_NetworkingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async_Await_NetworkingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3A5E785D2A6B7416006DD2AE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3A5E78602A6B7E89006DD2AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A5E78622A6C4CE0006DD2AE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		3A5E78652A6C7D77006DD2AE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +102,14 @@
 		3A5E78322A6B73DA006DD2AE /* Async_Await_Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3A5E78642A6C7D5D006DD2AE /* Mapping */,
 				3A5E785F2A6B7E73006DD2AE /* Models */,
 				3A5E78332A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift */,
 				3A5E78352A6B73DA006DD2AE /* ContentView.swift */,
 				3A5E78372A6B73DC006DD2AE /* Assets.xcassets */,
 				3A5E78392A6B73DC006DD2AE /* Preview Content */,
 				3A5E785D2A6B7416006DD2AE /* ViewModel.swift */,
+				3A5E78622A6C4CE0006DD2AE /* HTTPClient.swift */,
 			);
 			path = Async_Await_Networking;
 			sourceTree = "<group>";
@@ -139,6 +145,14 @@
 				3A5E78602A6B7E89006DD2AE /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3A5E78642A6C7D5D006DD2AE /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				3A5E78652A6C7D77006DD2AE /* MapView.swift */,
+			);
+			path = Mapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5E78612A6B7E89006DD2AE /* User.swift in Sources */,
+				3A5E78662A6C7D77006DD2AE /* MapView.swift in Sources */,
+				3A5E78632A6C4CE0006DD2AE /* HTTPClient.swift in Sources */,
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
 				3A5E785E2A6B7416006DD2AE /* ViewModel.swift in Sources */,
 				3A5E78342A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift in Sources */,
@@ -436,6 +452,7 @@
 				DEVELOPMENT_TEAM = KWL9A2A9XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -465,6 +482,7 @@
 				DEVELOPMENT_TEAM = KWL9A2A9XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
