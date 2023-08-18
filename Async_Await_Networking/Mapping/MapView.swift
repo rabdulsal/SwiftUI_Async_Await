@@ -175,6 +175,11 @@ struct MapViewContent: UIViewRepresentable {
             self.annotationDelegate = annotationDelegate
         }
         
+        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            self.annotationDelegate?.updateMapView(with: region)
+        }
+        
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             // Custom Pins....
             
@@ -210,6 +215,7 @@ struct MapViewContent: UIViewRepresentable {
 protocol AnnotationSelectionDelegate: AnyObject {
     
     func selectedAnnotation(_ annotation: MKAnnotation)
+    func updateMapView(with region: MKCoordinateRegion)
 }
 
 struct MapView_Previews: PreviewProvider {

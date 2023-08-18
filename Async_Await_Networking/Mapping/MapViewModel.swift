@@ -152,6 +152,10 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 }
 
 extension MapViewModel: AnnotationSelectionDelegate {
+    func updateMapView(with region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: true)
+    }
+    
     
     func selectedAnnotation(_ annotation: MKAnnotation) {
         self.makeDirections(with: annotation)
