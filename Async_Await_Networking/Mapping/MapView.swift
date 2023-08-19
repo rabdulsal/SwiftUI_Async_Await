@@ -84,6 +84,8 @@ struct MapView: View {
                 .padding(.vertical, 10)
                 .padding(.horizontal)
                 .background(.white)
+                .cornerRadius(6)
+                .shadow(color: .black, radius: 8)
                 
             }
             
@@ -175,6 +177,8 @@ struct MapViewContent: UIViewRepresentable {
             self.annotationDelegate = annotationDelegate
         }
         
+        // MARK: - Delegates
+        
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             self.annotationDelegate?.updateMapView(with: region)
@@ -208,6 +212,12 @@ struct MapViewContent: UIViewRepresentable {
                 annotation.isKind(of: MKUserLocation.self) == false else { return }
             
             annotationDelegate?.selectedAnnotation(annotation)
+        }
+        
+        // MARL: - Helpers
+        
+        func updateMapView(withPlace: Place) {
+            
         }
     }
 }

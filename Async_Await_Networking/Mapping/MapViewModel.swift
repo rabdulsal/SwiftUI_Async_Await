@@ -59,7 +59,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func setRegion(_ region: MKCoordinateRegion? = nil) {
         guard let region = region else {
-            self.region = MKCoordinateRegion(center: userLocationCoordinates!, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            self.region = MKCoordinateRegion(center: userLocationCoordinates!, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             setRegion(self.region)
             return
         }
@@ -106,11 +106,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         mapView.addAnnotation(pointAnnotation)
         
-        // Move Map to that Location....
-        
-        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        
-        setRegion(coordinateRegion)
+        // Span Map to include selectedPlace w/ userLocation
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func makeDirections(coordinate: CLLocationCoordinate2D) {
@@ -153,7 +150,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 extension MapViewModel: AnnotationSelectionDelegate {
     func updateMapView(with region: MKCoordinateRegion) {
-        mapView.setRegion(region, animated: true)
+        self.setRegion(region)
+        
     }
     
     
