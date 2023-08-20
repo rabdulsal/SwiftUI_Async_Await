@@ -25,11 +25,10 @@ struct MapView: View {
         VStack {
             ZStack {
                 MapViewContent(directions: $mapData.directions)
-                    .environmentObject(mapData)
                     .ignoresSafeArea(.all, edges: .all)
                 
                 VStack {
-                    searchBarView
+                    SearchTextField()
                     Spacer()
                 }
             }
@@ -61,6 +60,7 @@ struct MapView: View {
                 }
             })
         }
+        .environmentObject(mapData)
         
         Button {
             self.showDirections.toggle()
@@ -72,52 +72,52 @@ struct MapView: View {
 
     }
     
-    var searchBarView: some View {
-        VStack(spacing: 0) {
-            ZStack {
-                // Search Bar
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                    TextField("Search", text: $mapData.searchText)
-                }
-                .padding(.vertical, 10)
-                .padding(.horizontal)
-                .background(.white)
-                .cornerRadius(6)
-                .shadow(color: .black, radius: 8)
-                
-            }
-            
-            Divider()
-            
-            // Search Results
-            if !mapData.places.isEmpty && !mapData.searchText.isEmpty {
-                searchResultsView
-            }
-        }
-        .padding()
-    }
-    
-    var searchResultsView: some View {
-        ScrollView {
-            VStack(spacing: 15) {
-                ForEach(mapData.places) { place in
-                    Text(place.place.name ?? "")
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                        .onTapGesture {
-                            mapData.selectPlace(place: place)
-                        }
-                    
-                    Divider()
-                }
-            }
-            .padding(.top)
-        }
-        .background(.white)
-    }
+//    var searchBarView: some View {
+//        VStack(spacing: 0) {
+//            ZStack {
+//                // Search Bar
+//                HStack {
+//                    Image(systemName: "magnifyingglass")
+//                        .foregroundColor(.gray)
+//                    TextField("Search", text: $mapData.searchText)
+//                }
+//                .padding(.vertical, 10)
+//                .padding(.horizontal)
+//                .background(.white)
+//                .cornerRadius(6)
+//                .shadow(color: .black, radius: 8)
+//
+//            }
+//
+//            Divider()
+//
+//            // Search Results
+//            if !mapData.places.isEmpty && !mapData.searchText.isEmpty {
+//                searchResultsView
+//            }
+//        }
+//        .padding()
+//    }
+//
+//    var searchResultsView: some View {
+//        ScrollView {
+//            VStack(spacing: 15) {
+//                ForEach(mapData.places) { place in
+//                    Text(place.place.name ?? "")
+//                        .foregroundColor(.black)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(.leading)
+//                        .onTapGesture {
+//                            mapData.selectPlace(place: place)
+//                        }
+//
+//                    Divider()
+//                }
+//            }
+//            .padding(.top)
+//        }
+//        .background(.white)
+//    }
     
     var directionsSheetUI: some View {
         VStack {
