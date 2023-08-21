@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ProgressBarView: View {
     
-    @State var progressValue: Float = 0.0
+    @State var progressValue: Int = 0
+    @State var maxProgress: Int = 8
     
     var body: some View {
         VStack {
-            CustomProgressBar(value: $progressValue).frame(height: 20)
+            CustomProgressBar(value: $progressValue, maxProgress: $maxProgress).frame(height: 20)
                 .padding(.bottom, 30)
             
             Button {
@@ -27,20 +28,93 @@ struct ProgressBarView: View {
             } label: {
                 Text("Reset")
             }
+            
+            SectionedProgressBar(progressValue: $progressValue, maxProgress: $maxProgress).frame(height: 20)
 
             Spacer()
         }.padding()
     }
     
     func startProgressBar() {
-        //        for _ in 0...80 {
-        //            self.progressValue += 0.015
-        //        }
-        self.progressValue += 0.15
+        if self.progressValue < self.maxProgress {
+            self.progressValue += 1
+        }
     }
     
     func resetProgressBar() {
-        self.progressValue = 0.0
+        self.progressValue = 0
+    }
+}
+
+struct SectionedProgressBar: View {
+    
+    @Binding var progressValue: Int
+    @Binding var maxProgress: Int
+    
+    private var progressRatio: CGFloat {
+        return CGFloat(progressValue)/CGFloat(maxProgress)
+    }
+    
+    var body: some View {
+        
+        // MARK: - Broken ProgressBar
+        ZStack {
+            // Background
+            HStack {
+                ForEach(progressValue..<maxProgress) { count in
+                    // Left Edge
+                    if count == 0 {
+                        Rectangle()
+                            .frame(height: 20)
+                            .overlay(Rectangle()
+                                .fill(Color.white).padding([.leading, .vertical], 2))  // << here !!
+                            .foregroundColor(.gray)
+                    }
+                    
+                    // Right Edge
+                    else if count == maxProgress - 1 {
+                        Rectangle()
+                            .frame(height: 20)
+                            .overlay(Rectangle()
+                                .fill(Color.white).padding([.vertical, .trailing], 2))  // << here !!
+                            .foregroundColor(.gray)
+                    }
+                    
+                    // Middle
+                    else {
+                        Rectangle()
+                            .frame(height: 20)
+                            .overlay(Rectangle()
+                                .fill(Color.white).padding([.vertical], 2))  // << here !!
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            
+            // Progress Fill
+            HStack {
+                
+                GeometryReader { geo in
+                    
+                    let geoWidth = min(progressRatio*geo.size.width, geo.size.width)
+                    
+                    ForEach(0..<4) { _ in
+                        if self.progressValue > 0 {
+                            
+                            VStack(alignment: .trailing) {
+                                Text("IN TRANSIT")
+                                    .font(.system(size: 10))
+                                    .padding(.trailing, 8)
+                                    .frame(width: geoWidth, height: geo.size.height, alignment: .trailing)
+                                    .background(.blue)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -53,32 +127,41 @@ struct ProgressBarView: View {
  */
 struct CustomProgressBar: View {
     
-    @Binding var value: Float
-    var totalProgress: Float = 1.0
+    @Binding var value: Int
+    @Binding var maxProgress: Int
+    
+    private var progressRatio: CGFloat {
+        return CGFloat(value)/CGFloat(maxProgress)
+    }
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 
-                Text("5 of 25")
+                Text("In transit to stop \(value) of \(maxProgress)")
                 ZStack(alignment: .leading) {
                     Rectangle().frame(width: geometry.size.width, height: geometry.size.height)
                         .opacity(0.3)
                         .foregroundColor(Color(UIColor.systemTeal))
                     
-                    ZStack(alignment: .trailing) {
-                            Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                                .foregroundColor(Color(UIColor.systemBlue))
-                                .animation(.linear)
-                        if self.value > 0.0 {
+//                    ZStack(alignment: .trailing) {
+                        let geoWidth = min(progressRatio*geometry.size.width, geometry.size.width)
+                        
+//                        Rectangle().frame(width: geoWidth, height: geometry.size.height)
+//                                .foregroundColor(Color(UIColor.systemBlue))
+//                                .animation(.linear)
+                        if self.value > 0 {
                                 
-                            Text("In Transit")
-                                .foregroundColor(.white)
-                                .fontWeight(.semibold)
-                                .padding(.trailing, 5)
-                                
+                            VStack(alignment: .trailing) {
+                                Text("IN TRANSIT")
+                                    .font(.system(size: 10))
+                                    .padding(.trailing, 8)
+                                    .frame(width: geoWidth, height: geometry.size.height, alignment: .trailing)
+                                    .background(.red)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+                            }
                         }
-                    }
                 }.cornerRadius(45.0)
             }
         }
