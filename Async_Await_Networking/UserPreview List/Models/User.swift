@@ -2,11 +2,10 @@
 //  User.swift
 //  Async_Await_Networking
 //
-//  Created by Rashad Abdul-Salam on 7/21/23.
+//  Created by Rashad Abdul-Salaam on 9/13/23.
 //
 
 import Foundation
-
 
 /**
  CONTENT STRUCTURE

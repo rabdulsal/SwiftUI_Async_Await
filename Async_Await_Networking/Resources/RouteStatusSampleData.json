@@ -1,0 +1,143 @@
+{
+  "data": [
+    {
+      "orderNumber": "string",
+      "orderNum": "string",
+      "customerCode": "string",
+      "loadId": "string",
+      "load": {
+        "loadId": "string",
+        "vehicleId": "string",
+        "vehicleType": "string",
+        "carrierCode": "string",
+        "coordinates": {
+          "lat": 0,
+          "long": 0
+        },
+        "lastTelemetryTime": "2023-09-12T18:09:24.691Z",
+        "timeZone": "string",
+        "hasTelemetry": true,
+        "telemetryStale": true,
+        "orders": [
+          "string"
+        ]
+      },
+      "numberOfStops": 0,
+      "trailerNumber": "string",
+      "trailerNum": "string",
+      "carrierCode": "string",
+      "originStopLocality": "string",
+      "origin": {
+        "stopId": "string",
+        "stopNumber": 0,
+        "name": "string",
+        "address": {
+          "addressLines": [
+            "string"
+          ],
+          "locality": "string",
+          "region": "string",
+          "country": "string",
+          "postCode": "string"
+        },
+        "coordinates": {
+          "lat": 0,
+          "long": 0
+        },
+        "isWarehouse": true,
+        "timeZone": "string"
+      },
+      "destinationStopLocality": "string",
+      "destination": {
+        "stopId": "string",
+        "stopNumber": 0,
+        "name": "string",
+        "address": {
+          "addressLines": [
+            "string"
+          ],
+          "locality": "string",
+          "region": "string",
+          "country": "string",
+          "postCode": "string"
+        },
+        "coordinates": {
+          "lat": 0,
+          "long": 0
+        },
+        "isWarehouse": true,
+        "timeZone": "string"
+      },
+      "actualTrailerArrivalDatetime": "2023-09-12T18:09:24.691Z",
+      "actualOrderReceivedDatetime": "2023-09-12T18:09:24.691Z",
+      "actualOrderDispatchedDatetime": "2023-09-12T18:09:24.691Z",
+      "expectedShipDatetime": "2023-09-12T18:09:24.691Z",
+      "actualShipDatetime": "2023-09-12T18:09:24.691Z",
+      "orderShippedDatetime": "2023-09-12T18:09:24.691Z",
+      "expectedDeliveryDatetime": "2023-09-12T18:09:24.691Z",
+      "actualDeliveryDatetime": "2023-09-12T18:09:24.691Z",
+      "expectedDelivery": "2023-09-12T18:09:24.691Z",
+      "actualDelivery": "2023-09-12T18:09:24.691Z",
+      "orderStatus": "string",
+      "onTimeStatus": "string",
+      "orderDirection": "string",
+      "penskeService": "string",
+      "site": "string",
+      "timeline": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "groups": [
+          {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "title": "string",
+            "icon": "string",
+            "events": [
+              {
+                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "title": "string",
+                "description": "string",
+                "icon": "string",
+                "actualDate": "2023-09-12T18:09:24.691Z",
+                "estimatedDate": "2023-09-12T18:09:24.691Z",
+                "address": {
+                  "addressLines": [
+                    "string"
+                  ],
+                  "locality": "string",
+                  "region": "string",
+                  "country": "string",
+                  "postCode": "string"
+                },
+                "coordinates": {
+                  "lat": 0,
+                  "long": 0
+                },
+                "timeZone": "string",
+                "active": true,
+                "completed": true,
+                "skipped": true
+              }
+            ]
+          }
+        ],
+        "latestEvent": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "activeEvent": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+      },
+      "hasTransportationInfo": true,
+      "hasWarehouseInfo": true,
+      "hasPlanInformation": true,
+      "hasTransportationBeenSkipped": true,
+      "sourceSystem": "string"
+    }
+  ],
+  "totalResultsCount": 0,
+  "filterOptions": {
+    "additionalProp1": [
+      "string"
+    ],
+    "additionalProp2": [
+      "string"
+    ],
+    "additionalProp3": [
+      "string"
+    ]
+  }
