@@ -58,61 +58,133 @@ struct SectionedProgressBar: View {
     var body: some View {
         
         // MARK: - Broken ProgressBar
-        ZStack {
-            // Background
-            HStack {
-                ForEach(progressValue..<maxProgress) { count in
-                    // Left Edge
-                    if count == 0 {
-                        Rectangle()
-                            .frame(height: 20)
-                            .overlay(Rectangle()
-                                .fill(Color.white).padding([.leading, .vertical], 2))  // << here !!
-                            .foregroundColor(.gray)
-                    }
-                    
-                    // Right Edge
-                    else if count == maxProgress - 1 {
-                        Rectangle()
-                            .frame(height: 20)
-                            .overlay(Rectangle()
-                                .fill(Color.white).padding([.vertical, .trailing], 2))  // << here !!
-                            .foregroundColor(.gray)
-                    }
-                    
-                    // Middle
-                    else {
-                        Rectangle()
-                            .frame(height: 20)
-                            .overlay(Rectangle()
-                                .fill(Color.white).padding([.vertical], 2))  // << here !!
-                            .foregroundColor(.gray)
-                    }
-                }
-            }
-            
-            // Progress Fill
-            HStack {
-                
-                GeometryReader { geo in
-                    
-                    let geoWidth = min(progressRatio*geo.size.width, geo.size.width)
-                    
-                    ForEach(0..<4) { _ in
-                        if self.progressValue > 0 {
-                            
-                            VStack(alignment: .trailing) {
-                                Text("IN TRANSIT")
-                                    .font(.system(size: 10))
-                                    .padding(.trailing, 8)
-                                    .frame(width: geoWidth, height: geo.size.height, alignment: .trailing)
-                                    .background(.blue)
+        GeometryReader { geo in
+            ZStack {
+                // Background
+                HStack {
+                    ForEach(progressValue..<maxProgress) { count in
+                        
+                        // Progress width fill for Rectangle
+                        let singleFillWidth = geo.size.width / CGFloat(maxProgress)
+                        
+                        // Left Edge
+                        if count == 0 {
+                            if progressValue > 0 {
+                                Rectangle()
+                                    .frame(height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.blue).padding([.trailing], 1))  // << here !!
                                     .foregroundColor(.white)
-                                    .fontWeight(.semibold)
+                            } else {
+                                Rectangle()
+                                    .frame(height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.white).padding([.leading, .vertical], 2))  // << here !!
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        
+                        // Right Edge
+                        else if count == maxProgress - 1 {
+                            
+                            if progressValue == maxProgress - 1 {
+                                Rectangle()
+                                    .frame(width: singleFillWidth, height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.blue).padding([.leading], 1))  // << here !!
+                                    .foregroundColor(.white)
+                            } else {
+                                Rectangle()
+                                    .frame(height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.white).padding([.vertical, .trailing], 2))  // << here !!
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        
+                        // Middle
+                        else {
+                            
+                            if progressValue == count + 1 {
+                                Rectangle()
+                                    .frame(width: singleFillWidth, height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.blue).padding([.horizontal], 1))  // << here !!
+                                    .foregroundColor(.white)
+                            } else {
+                                Rectangle()
+                                    .frame(height: 20)
+                                    .overlay(Rectangle()
+                                        .fill(Color.white).padding([.vertical], 2))  // << here !!
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
                 }
+            
+            // Progress Fill
+//            if self.progressValue > 0 {
+//                HStack {
+//
+//                    GeometryReader { geo in
+//
+//
+//
+//                        ForEach(progressValue..<maxProgress) { count in
+//
+//                            // Progress width fill for non-Rectangle
+//                            let geoWidth = min(progressRatio*geo.size.width, geo.size.width)
+//
+//                            // Progress width fill for Rectangle
+//                            let singleFillWidth = geo.size.width / CGFloat(maxProgress)
+//
+//
+//                            // MARK: - Using Rectangle
+//                            // Left Edge
+//                            if count == 0 {
+//                                Rectangle()
+//                                    .frame(width: singleFillWidth, height: 20)
+//                                    .overlay(Rectangle()
+//                                        .fill(Color.white).padding([.trailing], 2))  // << here !!
+//                                    .foregroundColor(.gray)
+//                            }
+//
+//                            // Right Edge
+//                            else if count == maxProgress - 1 {
+//
+//
+//                                Rectangle()
+//                                    .frame(width: singleFillWidth, height: 20)
+//                                    .overlay(Rectangle()
+//                                        .fill(Color.blue).padding([.leading], 2))  // << here !!
+//                                    .foregroundColor(.white)
+//
+//
+//
+//                            }
+//
+//                            // Middle
+//                            else {
+//                                Rectangle()
+//                                    .frame(width: singleFillWidth, height: 20)
+//                                    .overlay(Rectangle()
+//                                        .fill(Color.blue).padding([.horizontal], 2))  // << here !!
+//                                    .foregroundColor(.white)
+//                            }
+//
+//                            // MARK: -  Using Text Background
+//                            //                            VStack(alignment: .trailing) {
+//                            //                                Text("IN TRANSIT")
+//                            //                                    .font(.system(size: 10))
+//                            //                                    .padding(.trailing, 8)
+//                            //                                    .frame(width: geoWidth, height: geo.size.height, alignment: .trailing)
+//                            //                                    .background(.blue)
+//                            //                                    .foregroundColor(.white)
+//                            //                                    .fontWeight(.semibold)
+//                            //                            }
+//                        }
+//                    }
+//                }
             }
         }
     }
