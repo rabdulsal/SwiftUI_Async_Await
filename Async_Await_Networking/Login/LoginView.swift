@@ -9,39 +9,47 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
-    @State var username = ""
-    @State var password = ""
+    @Published var username = ""
+    @Published var password = ""
     
 }
 
 struct LoginView: View {
     
-    @StateObject var viewModel = LoginViewModel()
+    @StateObject var loginVM = LoginViewModel()
+    @Binding var isSignedIn: Bool
     
     var body: some View {
         
-        VStack(spacing: 8) {
-            TextField(text: $viewModel.username) {
-                Text("SSO ID")
+        NavigationView {
+//            VStack(spacing: 8) {
+            Form {
+                TextField("SSO ID", text: $loginVM.username)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                
+                SecureField("Password", text: $loginVM.password)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                
+                
+                Button {
+                    self.loginPenskeUser()
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                        
+                        Text("Login")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                }
+                
             }
-            .padding()
-            
-            TextField(text: $viewModel.password) {
-                Text("Password")
-            }
-            .padding()
-            
-            
-            Button("Login") {
-                // TODO: Fire method to pass username & password
-                self.loginPenskeUser()
-            }
-            
         }
     }
-    
+    // TODO: 1. Move to LoginViewModel, 2. Add validations logic etc in VM
     func loginPenskeUser() {
-        // TODO: For now just push to RoutesListView
+        // Set 'isSignedIn' so MainView can update
+        isSignedIn = true
     }
 }
 
@@ -49,6 +57,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isSignedIn: .constant(false))
     }
 }
