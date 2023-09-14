@@ -14,8 +14,8 @@ struct ProgressBarView: View {
     
     var body: some View {
         VStack {
-            CustomProgressBar(value: $progressValue, maxProgress: $maxProgress).frame(height: 20)
-                .padding(.bottom, 30)
+//            CustomProgressBar(value: $progressValue, maxProgress: $maxProgress).frame(height: 20)
+//                .padding(.bottom, 30)
             
             Button {
                 self.startProgressBar()
@@ -199,8 +199,14 @@ struct SectionedProgressBar: View {
  */
 struct CustomProgressBar: View {
     
-    @Binding var value: Int
-    @Binding var maxProgress: Int
+//    @Binding var value: Int
+//    @Binding var maxProgress: Int
+    
+    static let DefaultHeight = 20.0
+    
+    var value: Int
+    var maxProgress: Int
+    var transitStatusType: RouteItem.TransitStatusType
     
     private var progressRatio: CGFloat {
         return CGFloat(value)/CGFloat(maxProgress)
@@ -210,32 +216,69 @@ struct CustomProgressBar: View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 
-                Text("In transit to stop \(value) of \(maxProgress)")
+//                Text("In transit to stop \(value) of \(maxProgress)")
                 ZStack(alignment: .leading) {
                     Rectangle().frame(width: geometry.size.width, height: geometry.size.height)
                         .opacity(0.3)
-                        .foregroundColor(Color(UIColor.systemTeal))
+                        .foregroundColor(Color(UIColor.lightGray))
                     
 //                    ZStack(alignment: .trailing) {
                         let geoWidth = min(progressRatio*geometry.size.width, geometry.size.width)
+                    let geoHeight = geometry.size.height
                         
 //                        Rectangle().frame(width: geoWidth, height: geometry.size.height)
 //                                .foregroundColor(Color(UIColor.systemBlue))
 //                                .animation(.linear)
-                        if self.value > 0 {
-                                
-                            VStack(alignment: .trailing) {
-                                Text("IN TRANSIT")
-                                    .font(.system(size: 10))
-                                    .padding(.trailing, 8)
-                                    .frame(width: geoWidth, height: geometry.size.height, alignment: .trailing)
-                                    .background(.red)
-                                    .foregroundColor(.white)
-                                    .fontWeight(.semibold)
-                            }
-                        }
+                    
+                    // MARK: Old ProgressBar
+//                        if self.value > 0 {
+//
+//                            VStack(alignment: .trailing) {
+//                                Text("IN TRANSIT")
+//                                    .font(.system(size: 10))
+//                                    .padding(.trailing, 8)
+//                                    .frame(width: geoWidth, height: geometry.size.height, alignment: .trailing)
+//                                    .background(.red)
+//                                    .foregroundColor(.white)
+//                                    .fontWeight(.semibold)
+//                            }
+//                        }
+                    
+                    // MARK: New ProgressBar
+                    self.transitFillView(
+                        progressWidth: geoWidth,
+                        maxWidth: geometry.size.width,
+                        transitStatusType: transitStatusType)
                 }.cornerRadius(45.0)
             }
+        }
+    }
+    
+    func transitFillView(progressWidth: CGFloat = 0, maxWidth: CGFloat, transitStatusType: RouteItem.TransitStatusType) -> some View {
+        
+        var fillText = ""
+        var fillColor = Color.clear
+        var fillWidth = progressWidth
+        
+        switch transitStatusType {
+        case .notStarted:
+            fillText = "NOT STARTED"
+        case .inTransit:
+            fillText = "IN TRANSIT"
+            fillColor = .blue
+        case .completed:
+            fillText = "COMPLETE"
+            fillColor = .gray
+            fillWidth = maxWidth
+        }
+        return VStack(alignment: .trailing) {
+            Text(fillText)
+                .font(.system(size: 10))
+                .padding(.trailing, 8)
+                .frame(width: fillWidth, height: CustomProgressBar.DefaultHeight, alignment: .trailing)
+                .background(fillColor)
+                .foregroundColor(.white)
+                .fontWeight(.semibold)
         }
     }
 }

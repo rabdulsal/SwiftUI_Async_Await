@@ -37,7 +37,7 @@ class RoutesListViewModel: ObservableObject {
                 stops: [
                     RouteStop(id: "10", title: "", locationCode: "WMT-E-0227", stopNumber: 1, scheduledArrival: "", arrivalState: "previous"),
                     RouteStop(id: "11", title: "", locationCode: "WMT-A-1110", stopNumber: 2, scheduledArrival: "", arrivalState: "previous"),
-                    RouteStop(id: "12", title: "", locationCode: "WMT-J-6879", stopNumber: 3, scheduledArrival: "", arrivalState: "previous")
+                    RouteStop(id: "12", title: "SBUX-ATLA7931", locationCode: "WMT-J-6879", stopNumber: 3, scheduledArrival: "", arrivalState: "previous")
             ], driver: "Harry Potter", transitStatus: "completed"),
             RouteItem(
                 id: "MN0",
@@ -107,12 +107,12 @@ struct RouteItem: Codable, Hashable {
         TransitStatusType(rawValue: transitStatus) ?? .notStarted
     }
     
-    var origin: String {
-        stops.first?.title ?? ""
+    var origin: RouteStop {
+        stops.first!
     }
     
-    var destination: String {
-        stops.last?.title ?? ""
+    var destination: RouteStop {
+        stops.last!
     }
     
     var currentStopCount: Int {
@@ -132,10 +132,10 @@ struct RouteItem: Codable, Hashable {
         case .notStarted:
             return "Route Not Started"
         case .inTransit:
-            return "In transit to stop \(currentStopCount) of \(totalStopCount) \(currentStop?.title ?? "") @ \(currentStop?.locationCode ?? "")"
+            return "In transit to stop \(currentStopCount) of \(totalStopCount) \(currentStop?.title ?? "") <DL type> @ \(currentStop?.locationCode ?? "")"
             
         case .completed:
-            return "Delivery Complete"
+            return "Completed \(totalStopCount) Stops: <DL type> @  \(destination.locationCode) \(destination.title)"
         }
     }
 }
@@ -149,25 +149,31 @@ struct RoutesListView: View {
             LazyVStack(alignment: .leading) {
                 ForEach(RoutesListViewModel.mockRoutes, id: \.self) { route in
                     
-//                        VStack {
-                    Text(route.id)
-                        .foregroundColor(.primary)
-                        .font(.system(size: 12, weight: .bold))
-                    
-                    Text(route.transitStatusMessage)
-                        .foregroundColor(.secondary)
-                        .font(.system(size: 12))
-//                        .font(.caption)
-                            
-//                        }
-                    // TODO: Show Route ProgressBar
-//                    CustomProgressBar(value: $progressValue, maxProgress: $maxProgress).frame(height: 20)
-//                        .padding(.bottom, 30)
+                    VStack(alignment: .leading) {
+                        Text(route.id)
+                            .foregroundColor(.primary)
+                            .font(.system(size: 12, weight: .bold))
+                        
+                        Text(route.transitStatusMessage)
+                            .foregroundColor(.secondary)
+                            .font(.system(size: 12))
+                        //                        .font(.caption)
+                        
+                        //                        }
+                        // Show Route ProgressBar
+                        CustomProgressBar(value: route.currentStopCount, maxProgress: route.totalStopCount, transitStatusType: route.transitStatusType).frame(height: CustomProgressBar.DefaultHeight)
+                    }
+                    .padding()
+                    .border(.gray, width: 2.0)
+                    .cornerRadius(4.0)
+                    .background(.white)
                 }
-                .padding([.vertical], 3)
+                .padding(EdgeInsets(top: 5, leading: 16, bottom: 5, trailing: 16))
             }
-            .padding()
+            
+            
         }
+        .background(Color(uiColor: UIColor(red: 250.0, green: 250.0, blue: 250.0, alpha: 1)))
     }
 }
 
