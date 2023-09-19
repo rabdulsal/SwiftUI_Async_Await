@@ -20,6 +20,7 @@
 		3A5E78662A6C7D77006DD2AE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78652A6C7D77006DD2AE /* MapView.swift */; };
 		3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */; };
 		3A5E786E2A6EFBE0006DD2AE /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */; };
+		9D6308E42AB39B6000E406F0 /* LoadStopsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */; };
 		9D6A1CB62AAFDB85004D3874 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB52AAFDB85004D3874 /* LoginView.swift */; };
 		9D6A1CB82AB023B1004D3874 /* RoutesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */; };
 		9D6A1CBA2AB0317D004D3874 /* RouteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */; };
@@ -71,6 +72,7 @@
 		3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStopsListView.swift; sourceTree = "<group>"; };
 		9D6A1CB52AAFDB85004D3874 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesListView.swift; sourceTree = "<group>"; };
 		9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailsView.swift; sourceTree = "<group>"; };
@@ -242,8 +244,6 @@
 				9D798F072AB3491C00F1429E /* ViewModels */,
 				9D798F022AB3486600F1429E /* Models */,
 				9D798F012AB3485900F1429E /* Views */,
-				9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */,
-				9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -251,6 +251,9 @@
 		9D798F012AB3485900F1429E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */,
+				9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */,
+				9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				3A5E78662A6C7D77006DD2AE /* MapView.swift in Sources */,
 				3A5E78632A6C4CE0006DD2AE /* HTTPClient.swift in Sources */,
 				9D798F062AB348F900F1429E /* LoadStop.swift in Sources */,
+				9D6308E42AB39B6000E406F0 /* LoadStopsListView.swift in Sources */,
 				3A5DECAD2A9123F000F9DB27 /* SearchTextField.swift in Sources */,
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
 				9D6A1CB82AB023B1004D3874 /* RoutesListView.swift in Sources */,

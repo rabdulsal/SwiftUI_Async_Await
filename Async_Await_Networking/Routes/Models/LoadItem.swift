@@ -9,6 +9,18 @@ import Foundation
 
 struct RouteItem: Codable, Hashable {
     
+    static let mockLoadItem: RouteItem = RouteItem(
+        id: "DEF",
+        stops: [
+                RouteStop(id: "4", title: "BELLEVUE - HWY 100", locationCode: "WMT-5280", stopNumber: 1, scheduledArrival: "", arrivalState: "previous"),
+                RouteStop(id: "5", title: "CHARLOTTE PIKE AND I40", locationCode: "TNB-600159706", stopNumber: 2, scheduledArrival: "", arrivalState: "previous"),
+                RouteStop(id: "6", title: "MURFREESBOROR - THE AVENUE", locationCode: "TNB-600159706", stopNumber: 3, scheduledArrival: "", arrivalState: "current"),
+                RouteStop(id: "7", title: "STARBUCKS LAWRENCEVILLE", locationCode: "SBUX-ATL47931", stopNumber: 4, scheduledArrival: "", arrivalState: "future")
+        ],
+        driver: "Prof. Dumbledore",
+        transitStatus: "in_transit")
+    
+    
     enum TransitStatusType: String {
         case notStarted = "not_started"
         case inTransit = "in_transit"
