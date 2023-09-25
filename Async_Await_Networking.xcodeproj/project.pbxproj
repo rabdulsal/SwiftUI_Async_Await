@@ -21,6 +21,9 @@
 		3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */; };
 		3A5E786E2A6EFBE0006DD2AE /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */; };
 		9D6308E42AB39B6000E406F0 /* LoadStopsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */; };
+		9D6308E62AB9DD9000E406F0 /* LoadsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6308E52AB9DD9000E406F0 /* LoadsListView.swift */; };
+		9D6308E82ABBAE0000E406F0 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6308E72ABBAE0000E406F0 /* OrderItem.swift */; };
+		9D6308EA2ABCC92600E406F0 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6308E92ABCC92500E406F0 /* OrdersListView.swift */; };
 		9D6A1CB62AAFDB85004D3874 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB52AAFDB85004D3874 /* LoginView.swift */; };
 		9D6A1CB82AB023B1004D3874 /* RoutesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */; };
 		9D6A1CBA2AB0317D004D3874 /* RouteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */; };
@@ -66,13 +69,15 @@
 		3A5E784E2A6B73DD006DD2AE /* Async_Await_NetworkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async_Await_NetworkingUITests.swift; sourceTree = "<group>"; };
 		3A5E78502A6B73DD006DD2AE /* Async_Await_NetworkingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async_Await_NetworkingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3A5E785D2A6B7416006DD2AE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		3A5E78602A6B7E89006DD2AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A5E78622A6C4CE0006DD2AE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3A5E78652A6C7D77006DD2AE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
 		9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStopsListView.swift; sourceTree = "<group>"; };
+		9D6308E52AB9DD9000E406F0 /* LoadsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsListView.swift; sourceTree = "<group>"; };
+		9D6308E72ABBAE0000E406F0 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		9D6308E92ABCC92500E406F0 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
 		9D6A1CB52AAFDB85004D3874 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesListView.swift; sourceTree = "<group>"; };
 		9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailsView.swift; sourceTree = "<group>"; };
@@ -174,15 +179,6 @@
 			path = Async_Await_NetworkingUITests;
 			sourceTree = "<group>";
 		};
-		3A5E785F2A6B7E73006DD2AE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3A5E78602A6B7E89006DD2AE /* User.swift */,
-			);
-			name = Models;
-			path = ../Models;
-			sourceTree = "<group>";
-		};
 		3A5E78642A6C7D5D006DD2AE /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +192,6 @@
 		3A5E78672A6E1E6B006DD2AE /* UserPreview List */ = {
 			isa = PBXGroup;
 			children = (
-				3A5E785F2A6B7E73006DD2AE /* Models */,
 				9D798EFB2AB17D7B00F1429E /* Models */,
 				3A5E785D2A6B7416006DD2AE /* HomeViewModel.swift */,
 				3A5E78352A6B73DA006DD2AE /* ContentView.swift */,
@@ -254,6 +249,8 @@
 				9D6A1CB72AB023B1004D3874 /* RoutesListView.swift */,
 				9D6A1CB92AB0317D004D3874 /* RouteDetailsView.swift */,
 				9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */,
+				9D6308E52AB9DD9000E406F0 /* LoadsListView.swift */,
+				9D6308E92ABCC92500E406F0 /* OrdersListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +260,7 @@
 			children = (
 				9D798F032AB348A200F1429E /* LoadItem.swift */,
 				9D798F052AB348F900F1429E /* LoadStop.swift */,
+				9D6308E72ABBAE0000E406F0 /* OrderItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,9 +417,12 @@
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
 				9D6A1CB82AB023B1004D3874 /* RoutesListView.swift in Sources */,
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
+				9D6308EA2ABCC92600E406F0 /* OrdersListView.swift in Sources */,
+				9D6308E82ABBAE0000E406F0 /* OrderItem.swift in Sources */,
 				9D798EFA2AB1668300F1429E /* TransitProgressView.swift in Sources */,
 				9D798F0B2AB35D7600F1429E /* MainView.swift in Sources */,
 				9D6A1CBA2AB0317D004D3874 /* RouteDetailsView.swift in Sources */,
+				9D6308E62AB9DD9000E406F0 /* LoadsListView.swift in Sources */,
 				9D798F042AB348A200F1429E /* LoadItem.swift in Sources */,
 				9D6A1CB62AAFDB85004D3874 /* LoginView.swift in Sources */,
 				3A5E78342A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift in Sources */,
