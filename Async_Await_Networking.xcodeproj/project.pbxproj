@@ -36,6 +36,7 @@
 		9D798F062AB348F900F1429E /* LoadStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F052AB348F900F1429E /* LoadStop.swift */; };
 		9D798F092AB3493E00F1429E /* LoadsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */; };
 		9D798F0B2AB35D7600F1429E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F0A2AB35D7600F1429E /* MainView.swift */; };
+		C8BB2E6F2AC1E0BE00DC928B /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		9D798F052AB348F900F1429E /* LoadStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStop.swift; sourceTree = "<group>"; };
 		9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsListViewModel.swift; sourceTree = "<group>"; };
 		9D798F0A2AB35D7600F1429E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */,
+				C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BB2E6F2AC1E0BE00DC928B /* OrdersListViewModel.swift in Sources */,
 				9D798EFE2AB1833A00F1429E /* HomeViewModel.swift in Sources */,
 				9D798EFF2AB1833A00F1429E /* MapViewModel.swift in Sources */,
 				3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */,
