@@ -20,6 +20,13 @@ class LoginViewModel: ObservableObject {
     }
 }
 
+extension Color {
+    
+    static let penskeDarkBlue = Color(red: 5.0 / 255.0, green: 50.0 / 255.0, blue: 92.0 / 255.0)
+    
+    static let penskeTeal = Color(red: 8.0 / 102.0, green: 139.0 / 255.0, blue: 92.0 / 255.0)
+}
+
 struct LoginView: View {
     
     @StateObject var loginVM = LoginViewModel()
@@ -29,34 +36,42 @@ struct LoginView: View {
     var body: some View {
         
         NavigationView {
-//            VStack(spacing: 8) {
-            Form {
-                if !loginVM.usernameErrorMessage.isEmpty {
-                    Text(loginVM.usernameErrorMessage)
-                }
-                TextField("SSO ID", text: $loginVM.username)
-                    .textFieldStyle(DefaultTextFieldStyle())
+            VStack(spacing: 8) {
                 
-                if !loginVM.passwordErrorMessage.isEmpty {
-                    Text(loginVM.passwordErrorMessage)
-                }
-                SecureField("Password", text: $loginVM.password)
-                    .textFieldStyle(DefaultTextFieldStyle())
+                Image("penske_logo_banner")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                 
-                
-                Button {
-                    self.loginPenskeUser()
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                        
-                        Text("Login")
-                            .foregroundColor(.white)
-                            .bold()
+                Form {
+                    if !loginVM.usernameErrorMessage.isEmpty {
+                        Text(loginVM.usernameErrorMessage)
                     }
+                    TextField("SSO ID", text: $loginVM.username)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    
+                    if !loginVM.passwordErrorMessage.isEmpty {
+                        Text(loginVM.passwordErrorMessage)
+                    }
+                    SecureField("Password", text: $loginVM.password)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    
+                    
+                    Button {
+                        self.loginPenskeUser()
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                            
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .bold()
+                        }
+                    }
+                    .foregroundColor(.penskeDarkBlue)
+                    .frame(height: 50)
                 }
-                
             }
+            Spacer()
         }
     }
     // TODO: 1. Move to LoginViewModel, 2. Add validations logic etc in VM

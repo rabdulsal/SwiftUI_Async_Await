@@ -54,18 +54,20 @@ struct OrdersListView: View {
                     }
                 }
                 .padding()
-                .onAppear(perform: getLoadsList)
+                .task {
+                    await viewModel.getOrdersList()
+                }
             }
             .navigationTitle("Orders List")
         }
     }
     
-    func getLoadsList() {
-        Task {
-            await viewModel.getOrdersList()
-        
-        }
-    }
+//    func getLoadsList() {
+//        Task {
+//            await viewModel.getOrdersList()
+//        
+//        }
+//    }
 }
 
 struct SCISimpleHorizontalTitleTextDisplayView : View {

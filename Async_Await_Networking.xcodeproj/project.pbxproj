@@ -144,6 +144,7 @@
 		3A5E78322A6B73DA006DD2AE /* Async_Await_Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C89EBECB2AC4D56300BBA788 /* Utilities */,
 				3A5E78332A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift */,
 				9D798F002AB3481F00F1429E /* Routes */,
 				9D798EF62AB0E42200F1429E /* Resources */,
@@ -280,6 +281,13 @@
 				C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C89EBECB2AC4D56300BBA788 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
