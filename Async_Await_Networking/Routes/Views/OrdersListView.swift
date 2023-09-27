@@ -12,8 +12,10 @@ import SwiftUI
 struct OrdersListView: View {
     
     @ObservedObject var viewModel = OrdersListViewModel()
+    @State var presentError = false
     
     var body: some View {
+        
         NavigationView {
             ScrollView {
                 LazyVStack(alignment: .leading) {
@@ -25,7 +27,6 @@ struct OrdersListView: View {
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading) {
                                     
-                                    // TODO: Wrap Text in HStack to separate .secondary title from .primary description
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Trailer:", text: " \(orderItem.trailerNum)")
                                     
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Carrier:", text: " \(orderItem.carrierCode)")
@@ -55,15 +56,20 @@ struct OrdersListView: View {
                 }
                 .padding()
                 .onAppear(perform: getLoadsList)
+                .alert(isPresented: .constant(!viewModel.ordersFetchError.isEmpty), content: {
+                    Alert(title: Text(viewModel.ordersFetchError))
+                    
+                })
             }
             .navigationTitle("Orders List")
         }
     }
     
     func getLoadsList() {
+            
         Task {
             await viewModel.getOrdersList()
-        
+            
         }
     }
 }
