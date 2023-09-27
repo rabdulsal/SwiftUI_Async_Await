@@ -37,6 +37,8 @@
 		9D798F092AB3493E00F1429E /* LoadsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */; };
 		9D798F0B2AB35D7600F1429E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F0A2AB35D7600F1429E /* MainView.swift */; };
 		C8BB2E6F2AC1E0BE00DC928B /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */; };
+		C8C910832AC45431008E7831 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C910822AC45431008E7831 /* OrderDetailsView.swift */; };
+		C8EF29602AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EF295F2AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsListViewModel.swift; sourceTree = "<group>"; };
 		9D798F0A2AB35D7600F1429E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
+		C8C910822AC45431008E7831 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
+		C8EF295F2AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCISimpleOrigDestMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 				3A5E78652A6C7D77006DD2AE /* MapView.swift */,
 				3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */,
 				3A5DECAC2A9123F000F9DB27 /* SearchTextField.swift */,
+				C8EF295F2AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				9D6308E32AB39B6000E406F0 /* LoadStopsListView.swift */,
 				9D6308E52AB9DD9000E406F0 /* LoadsListView.swift */,
 				9D6308E92ABCC92500E406F0 /* OrdersListView.swift */,
+				C8C910822AC45431008E7831 /* OrderDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				9D798EFF2AB1833A00F1429E /* MapViewModel.swift in Sources */,
 				3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */,
 				3A5E786E2A6EFBE0006DD2AE /* UserDetailsViewModel.swift in Sources */,
+				C8EF29602AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift in Sources */,
 				3A5DECAF2A91B85D00F9DB27 /* CustomProgressBar.swift in Sources */,
 				3A5E78662A6C7D77006DD2AE /* MapView.swift in Sources */,
 				3A5E78632A6C4CE0006DD2AE /* HTTPClient.swift in Sources */,
@@ -431,6 +438,7 @@
 				9D6A1CB62AAFDB85004D3874 /* LoginView.swift in Sources */,
 				3A5E78342A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift in Sources */,
 				9D798EFD2AB17EE800F1429E /* User.swift in Sources */,
+				C8C910832AC45431008E7831 /* OrderDetailsView.swift in Sources */,
 				9D798F092AB3493E00F1429E /* LoadsListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,25 +31,34 @@ struct StopAddress: Codable, Hashable {
     let postCode: String?
     
     var prettifiedAddressLines: String {
-        var addyBuffer = ""
-        for i in 0..<addressLines.count {
-            let line = addressLines[i]
-            if i != 0 {
-                addyBuffer += " \(line)"
-            } else {
-                addyBuffer += "\(line)"
-            }
-        }
-        return addyBuffer
+//        var addyBuffer = ""
+//        for i in 0..<addressLines.count {
+//            let line = addressLines[i]
+//            if i != 0 {
+//                addyBuffer += " \(line)"
+//            } else {
+//                addyBuffer += "\(line)"
+//            }
+//        }
+//        return addyBuffer
+        return addressLines.first ?? ""
     }
     
 }
 
+import MapKit
+
 // MARK: - LoadStop / GeoCoordinates
 struct RSGeoCoordinates: Codable, Hashable {
     
+    static let mockOrigCoords = RSGeoCoordinates(lat: 37.7749, long: -122.4194)
+    static let mockDestCoords = RSGeoCoordinates(lat: 34.0522, long: -118.2437)
+    
     let lat: Double
     let long: Double
+    var cllocationCoord2D: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(coordinates: self)
+    }
 }
 
 struct LoadStop: Codable, Hashable {
@@ -76,6 +85,10 @@ struct LoadStop: Codable, Hashable {
 // MARK: - OrderItem
 struct OrderItem: Codable, Hashable {
     
+    static var mockOrder: OrderItem {
+        
+        return OrderItem(orderNumber: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "FORT WORTH", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "FORT WORTH", region: "TX", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 32.978, long: -97.2544), isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "OAKVILLE", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "OAKVILLE", region: "ON", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 43.4756, long: -79.6696), isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
+    }
     
     enum OrderStatus: String {
         case closed
