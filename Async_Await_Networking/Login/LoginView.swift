@@ -13,13 +13,33 @@ class LoginViewModel: ObservableObject {
     @Published var password = ""
     @Published var usernameErrorMessage = ""
     @Published var passwordErrorMessage = ""
+    @Published var loginSuccessful = false
     
-    
-    func loginUser() {
+    func loginUser() async -> Bool {
         
+        if username.isEmpty {
+            usernameErrorMessage = "Username cannot be empty."
+        } else if username.lowercased() != "rashad" {
+            usernameErrorMessage = "Username is not correct."
+        } else {
+            usernameErrorMessage = ""
+        }
+        
+        if password.isEmpty {
+            passwordErrorMessage = "Password cannot be empty."
+        } else if password.lowercased() != "password" {
+            passwordErrorMessage = "Password is not correct."
+        } else {
+            passwordErrorMessage = ""
+        }
+        
+        if usernameErrorMessage.isEmpty && passwordErrorMessage.isEmpty {
+            loginSuccessful = true
+        }
+        return loginSuccessful
     }
 }
-
+ 
 extension Color {
     
     static let penskeDarkBlue = Color(red: 5.0 / 255.0, green: 50.0 / 255.0, blue: 92.0 / 255.0)
@@ -45,12 +65,14 @@ struct LoginView: View {
                 Form {
                     if !loginVM.usernameErrorMessage.isEmpty {
                         Text(loginVM.usernameErrorMessage)
+                            .foregroundColor(.red)
                     }
                     TextField("SSO ID", text: $loginVM.username)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
                     if !loginVM.passwordErrorMessage.isEmpty {
                         Text(loginVM.passwordErrorMessage)
+                            .foregroundColor(.red)
                     }
                     SecureField("Password", text: $loginVM.password)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -78,7 +100,10 @@ struct LoginView: View {
     func loginPenskeUser() {
         // Set 'isSignedIn' so MainView can update
         isLoggingInUser = true
-        isSignedIn = true
+        Task {
+            isSignedIn = await loginVM.loginUser()
+            isLoggingInUser = false
+        }
     }
 }
 

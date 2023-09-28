@@ -12,12 +12,15 @@ import SwiftUI
 struct OrdersListView: View {
     
     @ObservedObject var viewModel = OrdersListViewModel()
+    @State var presentError = false
     
     var body: some View {
+        
         NavigationView {
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(viewModel.orders, id: \.self) { orderItem in
+                    // TODO: User Mock OrdersListData until network back online
+                    ForEach(OrdersListData.mockOrders, id: \.self) { orderItem in
                         
                         NavigationLink (destination: {
                             OrderDetailsView(orderItem: orderItem)
@@ -25,7 +28,6 @@ struct OrdersListView: View {
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading) {
                                     
-                                    // TODO: Wrap Text in HStack to separate .secondary title from .primary description
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Trailer:", text: " \(orderItem.trailerNum)")
                                     
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Carrier:", text: " \(orderItem.carrierCode)")
@@ -41,33 +43,35 @@ struct OrdersListView: View {
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Origin:", text: orderItem.originStopLocality)
                                     
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Destination:", text: orderItem.destinationStopLocality)
-                                    //                                Text("Origin: \(orderItem.originStopLocality)")
-                                    //                                Text("Lat: \(orderItem.destination?.coordinates.lat ?? 0.0)")
-                                    //                                Text("\(orderItem.coordinates.lat)\(orderItem.coordinates.long)")
-                                    //                                Text(orderItem.lastTelemetryTime)
-                                    //                                Text("Destination: \(orderItem.destinationStopLocality)")
-                                    //                                Text("Long: \(orderItem.destination?.coordinates.long ?? 0.0)")
                                 }
                             }
-                            .padding(.vertical, 5)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2) // Slight drop shadow
+                            .padding(.horizontal)
                         })
+                        .padding(.vertical, 5)
                     }
                 }
-                .padding()
-                .task {
-                    await viewModel.getOrdersList()
-                }
+                .onAppear(perform: getOrdersList)
+                .alert(isPresented: .constant(!viewModel.ordersFetchError.isEmpty), content: {
+                    Alert(title: Text(viewModel.ordersFetchError))
+                    
+                })
             }
             .navigationTitle("Orders List")
+            .background(Color(white: 0.95))
         }
     }
     
-//    func getLoadsList() {
+    func getOrdersList() {
+            
 //        Task {
 //            await viewModel.getOrdersList()
-//        
+//            
 //        }
-//    }
+    }
 }
 
 struct SCISimpleHorizontalTitleTextDisplayView : View {

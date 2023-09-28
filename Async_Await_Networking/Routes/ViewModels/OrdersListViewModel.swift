@@ -25,7 +25,9 @@ class OrdersListViewModel: ObservableObject {
             case .failure(let error): throw error
             }
         } catch {
-            self.ordersFetchError = error.localizedDescription
+            DispatchQueue.main.async {
+                self.ordersFetchError = error.localizedDescription
+            }
         }
     }
 }
