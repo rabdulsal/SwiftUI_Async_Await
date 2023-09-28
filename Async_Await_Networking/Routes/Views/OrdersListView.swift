@@ -20,7 +20,7 @@ struct OrdersListView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     // TODO: User Mock OrdersListData until network back online
-                    ForEach(OrdersListData.mockOrders, id: \.self) { orderItem in
+                    ForEach(/*OrdersListData.mockOrders*/ viewModel.orders, id: \.self) { orderItem in
                         
                         NavigationLink (destination: {
                             OrderDetailsView(orderItem: orderItem)
@@ -32,8 +32,6 @@ struct OrdersListView: View {
                                     
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Carrier:", text: " \(orderItem.carrierCode)")
                                     SCISimpleHorizontalTitleTextDisplayView(title: "Load ID:", text: " \(orderItem.loadId)")
-                                    
-                                    //                                Text("Lat: \(orderItem.coordinates?.lat ?? 0.0)")
                                 }
                                 
                                 VStack(alignment: .leading) {
@@ -67,10 +65,10 @@ struct OrdersListView: View {
     
     func getOrdersList() {
             
-//        Task {
-//            await viewModel.getOrdersList()
-//            
-//        }
+        Task {
+            await viewModel.getOrdersList()
+            
+        }
     }
 }
 

@@ -19,7 +19,7 @@ class LoginViewModel: ObservableObject {
         
         if username.isEmpty {
             usernameErrorMessage = "Username cannot be empty."
-        } else if username.lowercased() != "rashad" {
+        } else if username.lowercased() != "505064424" {
             usernameErrorMessage = "Username is not correct."
         } else {
             usernameErrorMessage = ""
@@ -56,24 +56,30 @@ struct LoginView: View {
     var body: some View {
         
         NavigationView {
-            VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 8) {
                 
                 Image("penske_logo_banner")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
-                Form {
+                VStack(alignment: .leading) {
                     if !loginVM.usernameErrorMessage.isEmpty {
                         Text(loginVM.usernameErrorMessage)
                             .foregroundColor(.red)
                     }
-                    TextField("SSO ID", text: $loginVM.username)
-                        .textFieldStyle(DefaultTextFieldStyle())
                     
                     if !loginVM.passwordErrorMessage.isEmpty {
                         Text(loginVM.passwordErrorMessage)
                             .foregroundColor(.red)
                     }
+                }
+                .padding(.horizontal)
+                
+                Form {
+                    
+                    TextField("SSO ID", text: $loginVM.username)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    
                     SecureField("Password", text: $loginVM.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
@@ -93,6 +99,7 @@ struct LoginView: View {
                     .frame(height: 50)
                 }
             }
+            .background(Color(white: 0.95))
             Spacer()
         }
     }
