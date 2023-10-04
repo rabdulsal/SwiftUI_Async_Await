@@ -133,7 +133,7 @@ struct LoadItem: Codable, Hashable {
     let vehicleId: String?
     let vehicleType: String
     let carrierCode: String
-    let coordinates: RSGeoCoordinates?
+    let coordinates: SCIGeoCoordinates?
     let lastTelemetryTime: String?
     let timeZone: String?
     let hasTelemetry: Bool?

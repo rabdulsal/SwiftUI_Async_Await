@@ -49,10 +49,10 @@ struct StopAddress: Codable, Hashable {
 import MapKit
 
 // MARK: - LoadStop / GeoCoordinates
-struct RSGeoCoordinates: Codable, Hashable {
+struct SCIGeoCoordinates: Codable, Hashable {
     
-    static let mockOrigCoords = RSGeoCoordinates(lat: 37.7749, long: -122.4194)
-    static let mockDestCoords = RSGeoCoordinates(lat: 34.0522, long: -118.2437)
+    static let mockOrigCoords = SCIGeoCoordinates(lat: 37.7749, long: -122.4194)
+    static let mockDestCoords = SCIGeoCoordinates(lat: 34.0522, long: -118.2437)
     
     let lat: Double
     let long: Double
@@ -62,6 +62,10 @@ struct RSGeoCoordinates: Codable, Hashable {
 }
 
 struct LoadStop: Codable, Hashable {
+    
+    static let mockLoadOrigin = LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "FORT WORTH", region: "TX", country: nil, postCode: nil), coordinates: SCIGeoCoordinates(lat: 32.978, long: -97.2544), isWarehouse: false, timeZone: "America/Chicago")
+    
+    static let mockLoadDestination = LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "OAKVILLE", region: "ON", country: nil, postCode: nil), coordinates: SCIGeoCoordinates(lat: 43.4756, long: -79.6696), isWarehouse: false, timeZone: "America/Toronto")
     
 //    let origin: {
     let stopId: String
@@ -76,7 +80,7 @@ struct LoadStop: Codable, Hashable {
     var country: String?
     var postCode: String?
      */
-    var coordinates: RSGeoCoordinates
+    var coordinates: SCIGeoCoordinates
     let isWarehouse: Bool
     var timeZone: String
     
@@ -85,11 +89,11 @@ struct LoadStop: Codable, Hashable {
 // MARK: - OrderItem
 struct OrderItem: Codable, Hashable {
     
-    static let mockOrder: OrderItem = OrderItem(orderNumber: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "FORT WORTH", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "FORT WORTH", region: "TX", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 32.978, long: -97.2544), isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "OAKVILLE", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "OAKVILLE", region: "ON", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 43.4756, long: -79.6696), isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
+    static let mockOrder: OrderItem = OrderItem(orderNumber: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "FORT WORTH", origin: LoadStop.mockLoadOrigin, destinationStopLocality: "OAKVILLE", destination: LoadStop.mockLoadDestination, actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
     
-    static let mockOrder2: OrderItem = OrderItem(orderNumber: "43362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "43362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "FORT WORTH", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "FORT WORTH", region: "TX", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 32.978, long: -97.2544), isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "OAKVILLE", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "OAKVILLE", region: "ON", country: nil, postCode: nil), coordinates: RSGeoCoordinates(lat: 43.4756, long: -79.6696), isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
+    static let mockOrder2: OrderItem = OrderItem(orderNumber: "43362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "43362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "FORT WORTH", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "FORT WORTH", region: "TX", country: nil, postCode: nil), coordinates: SCIGeoCoordinates(lat: 32.978, long: -97.2544), isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "OAKVILLE", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "OAKVILLE", region: "ON", country: nil, postCode: nil), coordinates: SCIGeoCoordinates(lat: 43.4756, long: -79.6696), isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
     
-    static let mockOrder3: OrderItem = OrderItem(orderNumber: "53362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "SAN FRANCISO", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "SAN FRANCISCO", region: "TX", country: nil, postCode: nil), coordinates: RSGeoCoordinates.mockOrigCoords, isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "LOS ANGELES", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "LOS ANGELES", region: "ON", country: nil, postCode: nil), coordinates: RSGeoCoordinates.mockDestCoords, isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
+    static let mockOrder3: OrderItem = OrderItem(orderNumber: "53362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", orderNum: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702", customerCode: "FORD", loadId: "602422112", load: nil, numberOfStops: 2, trailerNumber: "UMXU882949", trailerNum: "UMXU882949", carrierCode: "APAD", originStopLocality: "SAN FRANCISO", origin: LoadStop(stopId: "600062899", stopNumber: nil, name: "SCHRADER ELECTRONICS LTD", address: StopAddress(addressLines: ["13601 INDEPENDANCE PARKWAY"], locality: "SAN FRANCISCO", region: "TX", country: nil, postCode: nil), coordinates: SCIGeoCoordinates.mockOrigCoords, isWarehouse: false, timeZone: "America/Chicago"), destinationStopLocality: "LOS ANGELES", destination: LoadStop(stopId: "601172593", stopNumber: 2, name: "AP20A", address: StopAddress(addressLines: ["1 CANADIAN ROAD"], locality: "LOS ANGELES", region: "ON", country: nil, postCode: nil), coordinates: SCIGeoCoordinates.mockDestCoords, isWarehouse: false, timeZone: "America/Toronto"), actualTrailerArrivalDatetime: "2023-09-09T14:21:18Z", actualOrderReceivedDatetime: "2023-09-09T15:10:53Z", actualOrderDispatchedDatetime: "2023-09-13T00:00:14Z", expectedShipDatetime: "2023-09-11T20:30:00Z", expectedDeliveryDatetime: "2023-09-21T22:30:00Z", actualDeliveryDatetime: nil, expectedDelivery: "2023-09-21T22:30:00Z", orderStatus: "closed", onTimeStatus: "on-time", orderDirection: "cross-warehouse", site: "PC75A", timeline: nil, hasTransportationInfo: true, hasWarehouseInfo: true, hasPlanInformation: true, hasTransportationBeenSkipped: false, sourceSystem: "TM,WMS-OB,WMS-IB")
     
     enum OrderStatus: String {
         case closed
@@ -114,6 +118,11 @@ struct OrderItem: Codable, Hashable {
         case PC02A
         case PC04A
     }
+    
+    var humanReadableExpectedDatetime: String {
+        return DateFormatter.makeHumanReadableDateString(inputDateString: self.expectedDeliveryDatetime)
+    }
+    
     /**
      
      orderNumber: "33362209-33362209-BVCUH-33362209-33362209-BVCUH-686765702-686765702",

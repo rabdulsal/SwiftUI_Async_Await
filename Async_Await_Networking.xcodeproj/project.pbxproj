@@ -36,6 +36,9 @@
 		9D798F062AB348F900F1429E /* LoadStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F052AB348F900F1429E /* LoadStop.swift */; };
 		9D798F092AB3493E00F1429E /* LoadsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */; };
 		9D798F0B2AB35D7600F1429E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D798F0A2AB35D7600F1429E /* MainView.swift */; };
+		C83C97382AC5C61700895FF5 /* SCILoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C97372AC5C61700895FF5 /* SCILoginViewModel.swift */; };
+		C83C973B2AC5CA6C00895FF5 /* CLLocationCoordinate2D+SCIMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C973A2AC5CA6C00895FF5 /* CLLocationCoordinate2D+SCIMobileApp.swift */; };
+		C83C973D2AC5F97100895FF5 /* DateFormatter+SCIMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C973C2AC5F97100895FF5 /* DateFormatter+SCIMobileApp.swift */; };
 		C8BB2E6F2AC1E0BE00DC928B /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */; };
 		C8C910832AC45431008E7831 /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C910822AC45431008E7831 /* OrderDetailsView.swift */; };
 		C8EF29602AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EF295F2AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift */; };
@@ -91,6 +94,9 @@
 		9D798F052AB348F900F1429E /* LoadStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStop.swift; sourceTree = "<group>"; };
 		9D798F082AB3493E00F1429E /* LoadsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsListViewModel.swift; sourceTree = "<group>"; };
 		9D798F0A2AB35D7600F1429E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C83C97372AC5C61700895FF5 /* SCILoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCILoginViewModel.swift; sourceTree = "<group>"; };
+		C83C973A2AC5CA6C00895FF5 /* CLLocationCoordinate2D+SCIMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+SCIMobileApp.swift"; sourceTree = "<group>"; };
+		C83C973C2AC5F97100895FF5 /* DateFormatter+SCIMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+SCIMobileApp.swift"; sourceTree = "<group>"; };
 		C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
 		C8C910822AC45431008E7831 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
 		C8EF295F2AC4A1AC00B8D181 /* SCISimpleOrigDestMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCISimpleOrigDestMapView.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 		3A5E78322A6B73DA006DD2AE /* Async_Await_Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C83C97392AC5CA2D00895FF5 /* Extensions */,
 				C89EBECB2AC4D56300BBA788 /* Utilities */,
 				3A5E78332A6B73DA006DD2AE /* Async_Await_NetworkingApp.swift */,
 				9D798F002AB3481F00F1429E /* Routes */,
@@ -221,6 +228,7 @@
 			children = (
 				9D6A1CB52AAFDB85004D3874 /* LoginView.swift */,
 				9D798F0A2AB35D7600F1429E /* MainView.swift */,
+				C83C97372AC5C61700895FF5 /* SCILoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -281,6 +289,15 @@
 				C8BB2E6E2AC1E0BE00DC928B /* OrdersListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C83C97392AC5CA2D00895FF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C83C973A2AC5CA6C00895FF5 /* CLLocationCoordinate2D+SCIMobileApp.swift */,
+				C83C973C2AC5F97100895FF5 /* DateFormatter+SCIMobileApp.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C89EBECB2AC4D56300BBA788 /* Utilities */ = {
@@ -435,12 +452,15 @@
 				3A5DECAD2A9123F000F9DB27 /* SearchTextField.swift in Sources */,
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
 				9D6A1CB82AB023B1004D3874 /* RoutesListView.swift in Sources */,
+				C83C97382AC5C61700895FF5 /* SCILoginViewModel.swift in Sources */,
 				3A5E78362A6B73DA006DD2AE /* ContentView.swift in Sources */,
 				9D6308EA2ABCC92600E406F0 /* OrdersListView.swift in Sources */,
 				9D6308E82ABBAE0000E406F0 /* OrderItem.swift in Sources */,
+				C83C973B2AC5CA6C00895FF5 /* CLLocationCoordinate2D+SCIMobileApp.swift in Sources */,
 				9D798EFA2AB1668300F1429E /* TransitProgressView.swift in Sources */,
 				9D798F0B2AB35D7600F1429E /* MainView.swift in Sources */,
 				9D6A1CBA2AB0317D004D3874 /* RouteDetailsView.swift in Sources */,
+				C83C973D2AC5F97100895FF5 /* DateFormatter+SCIMobileApp.swift in Sources */,
 				9D6308E62AB9DD9000E406F0 /* LoadsListView.swift in Sources */,
 				9D798F042AB348A200F1429E /* LoadItem.swift in Sources */,
 				9D6A1CB62AAFDB85004D3874 /* LoginView.swift in Sources */,

@@ -10,10 +10,17 @@ import MapKit
 
 struct SCISimpleOrigDestMapView: UIViewRepresentable {
     
-    // TODO: Eventually inject a LoadStop object
+    let loadOrigin: LoadStop
+    let loadDestination: LoadStop
     
-    let originCoordinate: RSGeoCoordinates // San Francisco
-    let destinationCoordinate: RSGeoCoordinates // Los Angeles
+    private var originCoordinate: SCIGeoCoordinates {
+        loadOrigin.coordinates
+    }
+    private var destinationCoordinate: SCIGeoCoordinates {
+        loadDestination.coordinates
+    }
+//    let originCoordinate: SCIGeoCoordinates // San Francisco
+//    let destinationCoordinate: SCIGeoCoordinates // Los Angeles
 
     func makeUIView(context: Context) -> MKMapView {
         MKMapView()
@@ -26,11 +33,11 @@ struct SCISimpleOrigDestMapView: UIViewRepresentable {
         // Create annotations for the origin and destination
         let originAnnotation = MKPointAnnotation()
         originAnnotation.coordinate = originCoordinate.cllocationCoord2D
-        originAnnotation.title = "Origin"
+        originAnnotation.title = loadOrigin.name
         
         let destinationAnnotation = MKPointAnnotation()
         destinationAnnotation.coordinate = destinationCoordinate.cllocationCoord2D
-        destinationAnnotation.title = "Destination"
+        destinationAnnotation.title = loadDestination.name
         
         // Add the annotations to the map
         uiView.addAnnotations([originAnnotation, destinationAnnotation])
@@ -62,15 +69,8 @@ struct SCISimpleOrigDestMapView: UIViewRepresentable {
 struct SCISimpleMapContentView: View {
 
     var body: some View {
-        SCISimpleOrigDestMapView(originCoordinate: RSGeoCoordinates.mockOrigCoords, destinationCoordinate: RSGeoCoordinates.mockDestCoords)
+        SCISimpleOrigDestMapView(loadOrigin: LoadStop.mockLoadOrigin, loadDestination: LoadStop.mockLoadDestination)
             .frame(height: 300)
-    }
-}
-
-extension CLLocationCoordinate2D {
-    
-    init(coordinates: RSGeoCoordinates) {
-        self.init(latitude: coordinates.lat, longitude: coordinates.long)
     }
 }
 

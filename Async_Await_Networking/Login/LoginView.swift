@@ -6,39 +6,6 @@
 //
 
 import SwiftUI
-
-class LoginViewModel: ObservableObject {
-    
-    @Published var username = ""
-    @Published var password = ""
-    @Published var usernameErrorMessage = ""
-    @Published var passwordErrorMessage = ""
-    @Published var loginSuccessful = false
-    
-    func loginUser() async -> Bool {
-        
-        if username.isEmpty {
-            usernameErrorMessage = "Username cannot be empty."
-        } else if username.lowercased() != "505064424" {
-            usernameErrorMessage = "Username is not correct."
-        } else {
-            usernameErrorMessage = ""
-        }
-        
-        if password.isEmpty {
-            passwordErrorMessage = "Password cannot be empty."
-        } else if password.lowercased() != "password" {
-            passwordErrorMessage = "Password is not correct."
-        } else {
-            passwordErrorMessage = ""
-        }
-        
-        if usernameErrorMessage.isEmpty && passwordErrorMessage.isEmpty {
-            loginSuccessful = true
-        }
-        return loginSuccessful
-    }
-}
  
 extension Color {
     
@@ -49,7 +16,7 @@ extension Color {
 
 struct LoginView: View {
     
-    @StateObject var loginVM = LoginViewModel()
+    @StateObject var loginVM = SCILoginViewModel()
     @Binding var isSignedIn: Bool
     @State var isLoggingInUser = false
     

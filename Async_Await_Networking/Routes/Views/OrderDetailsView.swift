@@ -15,56 +15,73 @@ struct OrderDetailsView: View {
         
         VStack(spacing: 0) {
             VStack {
-                SCISimpleOrigDestMapView(originCoordinate: orderItem.origin?.coordinates ?? RSGeoCoordinates.mockOrigCoords, destinationCoordinate: orderItem.destination?.coordinates ?? RSGeoCoordinates.mockDestCoords)
+                SCISimpleOrigDestMapView(loadOrigin: orderItem.origin!, loadDestination: orderItem.destination!)
                     .frame(height: UIScreen.main.bounds.height / 2)
                     .ignoresSafeArea(.container, edges: .top)
                 
-                
-                HStack(alignment: .top) {
-                    // Origin
-                    VStack(alignment: .leading) {
+                // Card UI
+                VStack(alignment: .leading) {
+                    HStack(alignment: .center) {
+                        SCISimpleHorizontalTitleTextDisplayView(title: "Expected Delivery:", text: " \(orderItem.humanReadableExpectedDatetime)")
                         
-                        let address = orderItem.origin?.address
+                        Spacer()
                         
-                        Text("Origin Address:")
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
+                        Text(orderItem.onTimeStatus)
+                            .padding(3)
+                            .font(.system(size: 12))
+                            .background(.green)
+                            .foregroundColor(.white)
                             .bold()
-                        Text(address?.prettifiedAddressLines ?? "")
-                            .font(.system(size: 15))
-                            .foregroundColor(.primary)
-                        
-                        HStack {
-                            Text(address?.locality ?? "")
-                                .font(.system(size: 15))
-                                .foregroundColor(.primary)
-                            Text(address?.region ?? "")
-                                .font(.system(size: 15))
-                                .foregroundColor(.primary)
-                        }
+                            .cornerRadius(5)
+                            
                     }
                     
-                    
-                    // Destination
-                    VStack(alignment: .leading) {
-                        
-                        let address = orderItem.destination?.address
-                        
-                        Text("Destination Address:")
-                            .font(.system(size: 14))
-                            .foregroundColor(.secondary)
-                            .bold()
-                        Text(orderItem.destination?.address.prettifiedAddressLines ?? "")
-                            .font(.system(size: 15))
-                            .foregroundColor(.primary)
-                        
-                        HStack {
-                            Text(address?.locality ?? "")
-                                .font(.system(size: 15))
+                    HStack(alignment: .top) {
+                        // Origin
+                        VStack(alignment: .leading) {
+                            
+                            let address = orderItem.origin?.address
+                            
+                            Text("Origin Address:")
+                                .font(.system(size: 13))
+                                .foregroundColor(.secondary)
+                                .bold()
+                            Text(address?.prettifiedAddressLines ?? "")
+                                .font(.system(size: 14))
                                 .foregroundColor(.primary)
-                            Text(address?.region ?? "")
-                                .font(.system(size: 15))
+                            
+                            HStack {
+                                Text(address?.locality ?? "")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.primary)
+                                Text(address?.region ?? "")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        
+                        
+                        // Destination
+                        VStack(alignment: .leading) {
+                            
+                            let address = orderItem.destination?.address
+                            
+                            Text("Destination Address:")
+                                .font(.system(size: 13))
+                                .foregroundColor(.secondary)
+                                .bold()
+                            Text(orderItem.destination?.address.prettifiedAddressLines ?? "")
+                                .font(.system(size: 14))
                                 .foregroundColor(.primary)
+                            
+                            HStack {
+                                Text(address?.locality ?? "")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.primary)
+                                Text(address?.region ?? "")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.primary)
+                            }
                         }
                     }
                 }

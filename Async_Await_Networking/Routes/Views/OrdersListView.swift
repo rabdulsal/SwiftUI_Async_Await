@@ -25,23 +25,43 @@ struct OrdersListView: View {
                         NavigationLink (destination: {
                             OrderDetailsView(orderItem: orderItem)
                         }, label: {
-                            HStack(alignment: .top) {
-                                VStack(alignment: .leading) {
+                            VStack(alignment: .leading) {
+                                HStack(alignment: .center) {
+                                    SCISimpleHorizontalTitleTextDisplayView(title: "Expected Delivery:", text: " \(orderItem.humanReadableExpectedDatetime)")
                                     
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Trailer:", text: " \(orderItem.trailerNum)")
+                                    Spacer()
                                     
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Carrier:", text: " \(orderItem.carrierCode)")
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Load ID:", text: " \(orderItem.loadId)")
+                                    Text(orderItem.onTimeStatus)
+                                        .padding(3)
+                                        .font(.system(size: 12))
+                                        .background(.green)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .cornerRadius(5)
+                                        
+                                }
+                                HStack(alignment: .top) {
+                                    VStack(alignment: .leading) {
+                                        
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Trailer:", text: " \(orderItem.trailerNum)")
+                                        
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Load ID:", text: " \(orderItem.loadId)")
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Carrier:", text: " \(orderItem.carrierCode)")
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    VStack(alignment: .leading) {
+                                        
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Customer:", text: orderItem.customerCode)
+                                        
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Origin:", text: orderItem.originStopLocality)
+                                        
+                                        SCISimpleHorizontalTitleTextDisplayView(title: "Destination:", text: orderItem.destinationStopLocality)
+                                    }
+                                    
                                 }
                                 
-                                VStack(alignment: .leading) {
-                                    
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Customer:", text: orderItem.customerCode)
-                                    
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Origin:", text: orderItem.originStopLocality)
-                                    
-                                    SCISimpleHorizontalTitleTextDisplayView(title: "Destination:", text: orderItem.destinationStopLocality)
-                                }
                             }
                             .padding()
                             .background(Color.white)
@@ -50,6 +70,7 @@ struct OrdersListView: View {
                             .padding(.horizontal)
                         })
                         .padding(.vertical, 5)
+                        
                     }
                 }
                 .onAppear(perform: getOrdersList)
@@ -80,11 +101,11 @@ struct SCISimpleHorizontalTitleTextDisplayView : View {
     var body: some View {
         HStack(alignment: .top) {
             Text(title)
-                .font(.system(size: 14))
+                .font(.system(size: 13))
                 .foregroundColor(.secondary)
                 .bold()
             Text(text)
-                .font(.system(size: 15))
+                .font(.system(size: 14))
                 .foregroundColor(.primary)
         }
     }
