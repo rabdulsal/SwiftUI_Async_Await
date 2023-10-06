@@ -39,6 +39,7 @@ struct SCIMainMapListView: View {
                             .padding(.horizontal, 16)
                         }
                         .transition(.move(edge: .bottom))
+                        .animation(.easeInOut(duration: 0.3))
                         .padding(.top, 50)
                         .offset(x: offset)
 //                        .gesture(
