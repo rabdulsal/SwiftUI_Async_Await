@@ -23,6 +23,7 @@
 		3A5E78692A6E1ED7006DD2AE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */; };
 		3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */; };
 		3A5E786E2A6EFBE0006DD2AE /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */; };
+		3ABCE9462ACF921400E90E21 /* SCIMainMapListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE9452ACF921400E90E21 /* SCIMainMapListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		3A5E786A2A6EF8EE006DD2AE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		3A5E786D2A6EFBE0006DD2AE /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		3ABCE9452ACF921400E90E21 /* SCIMainMapListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCIMainMapListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				3A5E78652A6C7D77006DD2AE /* MapView.swift */,
 				3A5E78682A6E1ED7006DD2AE /* MapViewModel.swift */,
 				3A5DECAC2A9123F000F9DB27 /* SearchTextField.swift */,
+				3ABCE9452ACF921400E90E21 /* SCIMainMapListView.swift */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABCE9462ACF921400E90E21 /* SCIMainMapListView.swift in Sources */,
 				3A5E786B2A6EF8EE006DD2AE /* UserDetailsView.swift in Sources */,
 				3A5E78612A6B7E89006DD2AE /* User.swift in Sources */,
 				3A5E786E2A6EFBE0006DD2AE /* UserDetailsViewModel.swift in Sources */,
